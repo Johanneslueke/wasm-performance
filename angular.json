@@ -46,7 +46,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "baseHref": "/angular-wasm/"
+              "baseHref": "/wasm-performance/"
             }
           },
           "defaultConfiguration": ""
