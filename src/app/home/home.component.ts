@@ -8,6 +8,7 @@ export interface Demo {
 
 @Component({
   selector: "app-home",
+  //interpolation: ['[[', ']]'],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
 })

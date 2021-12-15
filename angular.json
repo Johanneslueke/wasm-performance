@@ -46,7 +46,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "baseHref": "/wasm-performance/"
+              "baseHref": ""
             }
           },
           "defaultConfiguration": ""
