@@ -1,0 +1,82 @@
+<section>
+  <div class="container">
+    <h1>Fibonacci in Rust</h1>
+    
+
+    <div class="demo-contents" *ngIf="loaded">
+      <form (ngSubmit)="start()">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="form-group">
+              <label>Number:</label>
+              <input
+                type="number"
+                class="form-control"
+                name="number"
+                required
+                min="1"
+                [(ngModel)]="number"
+                [disabled]="isCalculating"
+                autocomplete="off"
+              />
+              <small class="form-text text-muted"
+                >The number for which you want to calculate the fibonacci series (min. 1)</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <label>Runs:</label>
+              <input
+                type="number"
+                class="form-control"
+                name="runs"
+                required
+                min="1"
+                [(ngModel)]="runs"
+                [disabled]="isCalculating"
+                autocomplete="off"
+              />
+              <small class="form-text text-muted"
+                >How many times to run the calculations before taking an average</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-primary btn-block" [ladda]="isCalculating">
+              Start
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="row" *ngIf="results">
+        <div class="col-lg-12">
+          <h2>Results</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">Loop</th>
+                <th scope="col">Recursive</th>
+                <th scope="col">Memoization</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let result of results">
+                <th scope="row">{{ result.name }}</th>
+                <td
+                  *ngFor="let func of ['fibonacciLoop', 'fibonacciRec', 'fibonacciMemo']"
+                  [class]="cellClass(result, func)"
+                >
+                  {{ result[func] | humanizeTime }} {{ fastDiff(result, func) }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
