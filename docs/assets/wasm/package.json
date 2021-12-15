@@ -1,0 +1,16 @@
+{
+  "name": "fibonacci-rust",
+  "collaborators": [
+    "Johannes <johannes.lueke@siemens.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "fibonacci_rust_bg.wasm",
+    "fibonacci_rust.js",
+    "fibonacci_rust_bg.js",
+    "fibonacci_rust.d.ts"
+  ],
+  "module": "fibonacci_rust.js",
+  "types": "fibonacci_rust.d.ts",
+  "sideEffects": false
+}
