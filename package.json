@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "build": "npm run wasm && ng build --configuration production",
-    "wasm": "node scripts/compile-wasm.js",
+    "wasm": "node scripts/compile-wasm.js && node scripts/wasm-cache-busting.js",
     "start": "ng serve",
     "lint": "ng lint",
     "prettier:check": "prettier --check .",
@@ -21,8 +21,7 @@
     "WebAssembly",
     "JavaScript"
   ],
-  "private": false,
-  "author": "Boyan Mihaylov",
+  "private": false, 
   "dependencies": {
     "@angular-builders/custom-webpack": "^13.0.0",
     "@angular/common": "^12.0.3",

@@ -25,6 +25,8 @@ const compileWasmSources = () => {
   const wasmDir = path.resolve(rootDir, "src/app/wasm");
   for (let item of fs.readdirSync(wasmDir)) {
     const itemPath = path.join(wasmDir, item);
+
+    console.log("\n",chalk.blue(itemPath));
     if (!fs.lstatSync(itemPath).isDirectory()) {
       continue;
     }
@@ -32,8 +34,11 @@ const compileWasmSources = () => {
     const buildFilePath = path.join(itemPath, "build-cmd.js");
     const { cmd } = require(buildFilePath);
 
+    console.log("\n",chalk.blue(cmd));
+    console.log("\n",chalk.blue(buildFilePath));
     // fix for Windows
     const formattedCmd = cmd.replace("$(pwd)", rootDir);
+    console.log("\n",chalk.blue(formattedCmd));
 
     console.log("\nCompiling wasm source for", chalk.green(item));
     console.log(formattedCmd);
