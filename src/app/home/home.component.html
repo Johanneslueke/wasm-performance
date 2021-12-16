@@ -38,8 +38,8 @@
             <li> Webapplikation dürfen keine resourceh verschwenden </li>
           </ul>
           <p>
-            Die Frage lautet also: <b>Wie erreicht man die Ziele von kleinen, hoch performanten resourcen schonenden
-              programmen?</b>
+            Die Frage lautet also: <b>Wie erreicht man die Ziele von kleinen, hoch performanten Ressourcen schonenden
+              Programmen?</b>
           </p>
         </div>
       </div>
@@ -66,7 +66,6 @@
               <li>Dhrystone</li>
               <li>Rhealstone</li>
               <li>Linpack</li>
-              <li>SPEC</li>
             </ul>
             <li>
               Ziel der Test war die Performance der CPU's zu messen
@@ -87,7 +86,7 @@
             <thead>
               <tr>
                 <th scope="col">&nbsp;</th>
-                <th scope="col">Loop</th>
+                <th scope="col">Interative</th>
                 <th scope="col">Recursive</th>
                 <th scope="col">Memoization</th>
                 <th scope="col">Total Code Size</th>
@@ -307,3 +306,27 @@ const fibonacciMemo =
   <app-fibRust></app-fibRust>
   <app-fibC></app-fibC>
 </section>
+
+<section>
+  <div class="container">
+    <h1>Fazit</h1>
+    <div class="demo-contents" style="margin-bottom: 50px; ">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+            Man kann zusammenfassen: Bei hinreichend Rechenintensiven Operation schlägt die Ausführung von Webassembly
+            die Ausführung von Javascript im Webbrowser.
+            Zwischen den Sprachen C und Rust kommt die Sprache C als Favorit hervor, da die produzierte Code größe die
+            Kleinere von beiden ist.
+          </p>
+          <p> Es sei angemerkt, dass die Tests noch keine abschließende Antwort liefern können. Der Benchmark gibt uns
+            aber ein Indikator darüber welche Sprache potentiel
+            die bessere Wahl bei Webapplikation ist, wenn es darum geht Rechenintensiven code zu optimieren um die
+            Userexperience zu verbessern.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
