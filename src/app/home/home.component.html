@@ -14,9 +14,11 @@
       <div class="row">
         <div class="col-lg-12">
           <ul>
-            <li> Geschwindigkeit (Ausführung)</li>
-            <li> Geschwindigkeit (Download)</li>
-            <li> Reponsivness (UX)</li>
+            <li> Webapplikation dürfen nicht lange brauchen um geladen zu werden</li>
+            <li> Webapplikation dürfen nicht langsam sein auf dem Userclient </li>
+            <li> Webapplikation sollen flüssig (ohne Lag) auf dem Client zu Ausführung kommen </li>
+
+            <li> Es ist noch wenig bekannt welches werkzeug die beste Wahl ist um die Probleme zu lösen</li>
           </ul>
         </div>
       </div>
@@ -29,8 +31,15 @@
     <div class="demo-contents">
       <div class="row">
         <div class="col-lg-12">
+          <h3>Aus den Problemen können folgende Ziele abgeleitet werden</h3>
+          <ul>
+            <li> Webapplikation müssen physisch klein sein</li>
+            <li> Webapplikation müssen hoch performant sein ( effiziente algorithmen )</li>
+            <li> Webapplikation dürfen keine resourceh verschwenden </li>
+          </ul>
           <p>
-
+            Die Frage lautet also: <b>Wie erreicht man die Ziele von kleinen, hoch performanten resourcen schonenden
+              programmen?</b>
           </p>
         </div>
       </div>
@@ -43,9 +52,26 @@
     <div class="demo-contents">
       <div class="row">
         <div class="col-lg-12">
-          <p>
-
-          </p>
+          <ul>
+            <li> Für Aussagen über die Performance stellen zu können werden <b>vergleichbare Daten</b> benötigt</li>
+            <li> Vergleichbare Daten werden über standardisierte Test erzeugt. Benchmark Test</li>
+            <li> Spezifisch werden in diesem Beispiel sogenannte <i><b>Synthetische Benchmarks</b></i> durchgeführt</li>
+          </ul>
+          <hr>
+          <ul>
+            <li> Synthetisch Benchmark bedeutet: Messung anhand eines Künstliches Problems</li>
+            <li> Beispiele für Synthetische Benchmarks aus der Vergangenheit: </li>
+            <ul>
+              <li>Whetstone</li>
+              <li>Dhrystone</li>
+              <li>Rhealstone</li>
+              <li>Linpack</li>
+              <li>SPEC</li>
+            </ul>
+            <li>
+              Ziel der Test war die Performance der CPU's zu messen
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -64,6 +90,7 @@
                 <th scope="col">Loop</th>
                 <th scope="col">Recursive</th>
                 <th scope="col">Memoization</th>
+                <th scope="col">Total Code Size</th>
               </tr>
             </thead>
             <tbody>
@@ -125,6 +152,7 @@
                     </code>
                   </pre>
                 </td>
+                <td> 487 bytes</td>
               </tr>
 
               <tr>
@@ -195,6 +223,75 @@ fn  fibonacciMemo(num : usize) -> i32{
                     </code>
                   </pre>
                 </td>
+                <td>13,7 kb</td>
+              </tr>
+
+              <tr>
+                <th scope="row" class="align-content:center;"> TS </th>
+                <td>
+                  <pre>
+                    <code>
+                      {{'
+const fibonacciLoop = 
+(num: number) => {
+  let a = 1;
+  let b = 0;
+  let temp;
+
+  while (num >= 0) {
+    temp = a;
+    a = a + b;
+    b = temp;
+    num--;
+  }
+
+  return b;
+};
+                      '}}
+                    </code>
+                  </pre>
+                </td>
+                <td>
+                  <pre>
+                    <code>
+                      {{'
+const fibonacciRec = 
+(num: number) => {
+  if (num <= 1) {
+    return 1;
+  }
+  let a = fibonacciMemo(num - 1);
+  let b = fibonacciMemo(num - 2 );
+  return a + b;
+};
+                      '}}
+                    </code>
+                  </pre>
+                </td>
+                <td>
+                  <pre>
+                    <code>
+                      {{'
+const fibonacciMemo = 
+(num: number, memo?: Object) => {
+  memo = memo || {};
+
+  if (memo[num]) {
+    return memo[num];
+  }
+
+  if (num <= 1) {
+    return 1;
+  }
+  let a = fibonacciMemo(num - 1);
+  let b = fibonacciMemo(num - 2);
+  return (memo[num] = a + b;
+};
+                      '}}
+                    </code>
+                  </pre>
+                </td>
+                <td>582 bytes</td>
               </tr>
             </tbody>
           </table>
@@ -202,6 +299,8 @@ fn  fibonacciMemo(num : usize) -> i32{
       </div>
     </div>
   </div>
+
+
 
 </section>
 <section>

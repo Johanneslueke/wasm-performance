@@ -28,7 +28,7 @@ export const fibonacciMemo = (num: number, memo?: Object) => {
     return memo[num];
   }
 
-  if (num <= 1) {
+  if (num == 1 || num == 2) {
     return 1;
   }
 
